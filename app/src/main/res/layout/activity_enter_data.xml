@@ -6,21 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <Button
-        android:id="@+id/firstbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="411dp"
+            android:layout_height="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/white"
+                android:background="@color/navy_blu2"
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="КМ"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:visibility="visible" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:background="@color/navy_blu2"
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Координаты"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:visibility="visible" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:background="@color/navy_blu2"
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ИПИ"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:background="@color/navy_blu2"
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ВЭ"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:background="@color/navy_blu2"
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Примечание"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="592dp"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="409dp"
+                android:layout_height="500dp"
+                android:focusableInTouchMode="false"
+                android:isScrollContainer="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <Button
+                android:backgroundTint="@color/navy_blue"
+                android:id="@+id/firstbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Button" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    //
 </androidx.constraintlayout.widget.ConstraintLayout>

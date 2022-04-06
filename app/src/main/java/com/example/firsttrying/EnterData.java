@@ -27,9 +27,11 @@ public class EnterData extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_enter_data);
         upd=findViewById(R.id.firstbtn);
         upd.setOnClickListener(this);
-        MyRvAdapter adapter=new MyRvAdapter();
+
         RecyclerView rv=findViewById(R.id.rv);
+        MyRvAdapter adapter=new MyRvAdapter();
         rv.setAdapter(adapter);
+
         provider=new ViewModelProvider(this);
        enterDataViewModel=provider.get(EnterDataViewModel.class);
         getLifecycle().addObserver((LifecycleObserver) enterDataViewModel);

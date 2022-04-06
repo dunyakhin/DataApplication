@@ -18,20 +18,15 @@ public class EnterDataViewModel extends AndroidViewModel implements LifecycleObs
     List<RowData> data=new ArrayList<>();
     MutableLiveData<List<RowData>> mld=new MutableLiveData<>();
 
+
     public EnterDataViewModel(@NonNull Application application) {
         super(application);
-        data.add(new RowData("km","vp", "7426.000,6346", "korobovo", "10"));
+        data.add(new RowData(" "," ", " ", " ", " "));
         mld.setValue(data);
     }
-
-    void createNewRowData(){
-        data.add(new RowData("1","vp", "", "", ""));
+    public void createNewRowData(){
+        data.add(new RowData(" "," ", " ", " ", " "));
         mld.setValue(data);
-
-
     }
-
-
-
-    }
+}
 
