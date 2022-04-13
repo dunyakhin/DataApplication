@@ -1,8 +1,6 @@
 package com.example.firsttrying;
 
-import android.content.Intent;
 import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +9,13 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.firsttrying.room.DatabaseUnit;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.ViewHolder> {
-    List<RowData> items=new ArrayList<>();
+    List<DatabaseUnit> items=new ArrayList<>();
 
     @NonNull
     @Override
@@ -27,18 +27,18 @@ public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-    RowData data=items.get(position);
-    holder.et1.setText(data.getField1());
-        holder.et2.setText(data.getField2());
-        holder.et3.setText(data.getField3());
-        holder.et4.setText(data.getField4());
-        holder.et5.setText(data.getField5());
+    DatabaseUnit data=items.get(position);
+    holder.et1.setText(data.coord);
+        holder.et2.setText(data.ipi);
+        holder.et3.setText(data.km);
+        holder.et4.setText(data.ve);
+        holder.et5.setText(data.note);
 
         holder.et1.addTextChangedListener(new BaseTextWatcher() {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                data.setField1(editable.toString());
+                data.km=(editable.toString());
 
             }
         });
@@ -46,7 +46,7 @@ public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.ViewHolder> {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                data.setField2(editable.toString());
+                data.coord=(editable.toString());
 
             }
         });
@@ -54,7 +54,7 @@ public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.ViewHolder> {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                data.setField3(editable.toString());
+                data.ipi=(editable.toString());
 
             }
         });
@@ -62,7 +62,7 @@ public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.ViewHolder> {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                data.setField4(editable.toString());
+                data.ve=(editable.toString());
 
             }
         });
@@ -70,7 +70,7 @@ public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.ViewHolder> {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                data.setField5(editable.toString());
+                data.note=(editable.toString());
 
             }
         });
@@ -82,9 +82,11 @@ public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.ViewHolder> {
         return items.size();
 
     }
-    void updateItems(List <RowData> items){
+    public void updateItems(List <DatabaseUnit> items){
+
         this.items=items;
-        notifyDataSetChanged();
+       notifyItemChanged(getItemCount());
+
     }
 
 
@@ -98,5 +100,8 @@ public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.ViewHolder> {
             et4=itemView.findViewById(R.id.et4);
             et5=itemView.findViewById(R.id.et5);
         }
+    }
+    public void clearData(){
+        items.clear();
     }
 }

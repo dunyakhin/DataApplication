@@ -1,4 +1,4 @@
-package com.example.firsttrying;
+package com.example.firsttrying.fragments;
 
 import android.os.Bundle;
 
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.firsttrying.R;
 
 public class AddRowFragment extends Fragment implements View.OnClickListener {
 
